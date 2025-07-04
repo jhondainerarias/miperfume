@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre fragancias exclusivas y personales. Donde cada gota cuenta una historia. Encuentra tu esencia perfecta.">
+    <title>Mis Fragancias - Realiza tu Compra</title>
+    <link rel="stylesheet" href="styles1.css" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <style>
+        /* Tu CSS para el menú flotante, tal como lo tienes */
+        .menu-flotante {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            left: auto;
+            transform: none;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 15px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-flotante:hover {
+            transform: none;
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-flotante ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+            justify-content: flex-end;
+        }
+
+        .menu-flotante ul li {
+            list-style: none;
+        }
+
+        .menu-flotante ul li a {
+            background: rgba(255, 255, 255, 0.1);
+            color: #150149;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+                        -5px -5px 10px rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+
+        .menu-flotante ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 7px 7px 14px rgba(0, 0, 0, 0.3),
+                        -7px -7px 14px rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-flotante ul li a:active {
+            transform: translateY(0);
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+                        inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .menu-flotante {
+                top: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                border-radius: 10px;
+            }
+            .menu-flotante ul {
+                gap: 10px;
+            }
+            .menu-flotante ul li a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-flotante {
+                top: 10px;
+                right: 10px;
+                padding: 8px 10px;
+                border-radius: 8px;
+                width: auto;
+                left: auto;
+                transform: none;
+            }
+            .menu-flotante ul {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 8px;
+            }
+            .menu-flotante ul li a {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+    <nav class="menu-flotante">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="dama.html">Dama</a></li>
+            <li><a href="caballero.html">Caballero</a></li>
+            <li><a href="unisex.html">Unisex</a></li>
+            <li><a href="comprar.html">Hacer una Compra</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content-wrapper">
+        <header class="page-header">
+            <h1 class="page-title">Realiza tu Pedido</h1>
+            <p class="page-subtitle">Personaliza tu fragancia ideal en pocos pasos.</p>
+        </header>
+
+        <section class="order-section">
+            <div class="section-card">
+                <h2>1. ¡Hola! Ingresa tus datos</h2>
+                <p>Necesitamos tu nombre y número de contacto para coordinar tu pedido.</p>
+                <div class="input-group">
+                    <input type="text" id="nombreInput" placeholder="Tu Nombre Completo" aria-label="Introduce tu nombre">
+                    <input type="tel" id="celularInput" placeholder="Número de Celular (Ej: 3101234567)" aria-label="Número de celular">
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>2. Selecciona tu Perfume</h2>
+                <p>Busca tu fragancia favorita o selecciona por casa perfumera.</p>
+                <div class="search-and-select-group">
+                    <input type="text" id="perfumeSearchInput" placeholder="Buscar perfume por nombre..." aria-label="Buscar perfume">
+                    <div id="perfumeSearchResults" class="search-results-perfume"></div>
+                </div>
+
+                <div class="divider"><span>O</span></div>
+
+                <div class="options-group">
+                    <select id="casaSelect">
+                        <option value="">-- Selecciona una casa perfumera --</option>
+                        <option value="afnan">Afnan</option>
+                        <option value="agataruizdelaprada">Agata Ruiz de la Prada</option>
+                        <option value="ahli">Ahli</option>
+                        <option value="alharamain">Al Haramain</option>
+                        <option value="animale">Animale</option>
+                        <option value="antoniobanderas">Antonio Banderas</option>
+                        <option value="arianagrande">Ariana Grande</option>
+                        <option value="armaf">Armaf</option>
+                        <option value="arrurru">Arrurru</option>
+                        <option value="azzaro">Azzaro</option>
+                        <option value="bath&bodyworks">Bath & Body Works</option>
+                        <option value="benetton">Benetton</option>
+                        <option value="bharara">Bharara</option>
+                        <option value="bilieeilish">Billie Eilish</option>
+                        <option value="bondn°9">Bond N°9</option>
+                        <option value="britneyspears">Britney Spears</option>
+                        <option value="burberry">Burberry</option>
+                        <option value="bvlgari">Bvlgari</option>
+                        <option value="cacharel">Cacharel</option>
+                        <option value="calvinklein">Calvin Klein</option>
+                        <option value="carolinaherrera">Carolina Herrera</option>
+                        <option value="cartier">Cartier</option>
+                        <option value="chanel">Chanel</option>
+                        <option value="christiandior">Christian Dior</option>
+                        <option value="clinique">Clinique</option>
+                        <option value="creed">Creed</option>
+                        <option value="cristianoronaldo">Cristiano Ronaldo</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="dolcegabbana">Dolce & Gabbana</option>
+                        <option value="dumontparis">Dumont Paris</option>
+                        <option value="elizabetharden">Elizabeth Arden</option>
+                        <option value="elizabethtaylor">Elizabeth Taylor</option>
+                        <option value="enriqueiglesias">Enrique Iglesias</option>
+                        <option value="escada">Escada</option>
+                        <option value="esika">Esika</option>
+                        <option value="faconable">Faconable</option>
+                        <option value="ferrari">Ferrari</option>
+                        <option value="fredhayman">Fred Hayman</option>
+                        <option value="giardiniditoscana">Giardini Di Toscana</option>
+                        <option value="gillescantuel">Gilles Cantuel</option>
+                        <option value="giorgioarmani">Giorgio Armani</option>
+                        <option value="givenchy">Givenchy</option>
+                        <option value="gucci">Gucci</option>
+                        <option value="guess">Guess</option>
+                        <option value="hugoboss">Hugo Boss</option>
+                        <option value="ilmin">Ilmin</option>
+                        <option value="isseymiyake">Issey Miyake</option>
+                        <option value="jeanpaulgaultier">Jean Paul Gaultier</option>
+                        <option value="jeanpascal">Jean Pascal</option>
+                        <option value="jesusdelpozo">Jesús del Pozo</option>
+                        <option value="juicycouture">Juicy Couture</option>
+                        <option value="justinbieber">Justin Bieber</option>
+                        <option value="katyperry">Katy Perry</option>
+                        <option value="kenzo">Kenzo</option>
+                        <option value="killian">Killian</option>
+                        <option value="kimkardashian">Kim Kardashian</option>
+                        <option value="lacoste">Lacoste</option>
+                        <option value="lancome">Lancome</option>
+                        <option value="lattafa">Lattafa</option>
+                        <option value="lelabo">Le Labo</option>
+                        <option value="lizclaiborne">Liz Claiborne</option>
+                        <option value="loewe">Loewe</option>
+                        <option value="lolitalempicka">Lolita Lempicka</option>
+                        <option value="lorenzopazzaglia">Lorenzo Pazzaglia</option>
+                        <option value="louisvuitton">Louis Vuitton</option>
+                        <option value="maisonfrancisk">Maison Francis Kurkdjian</option>
+                        <option value="maluma">Maluma</option>
+                        <option value="mancera">Mancera</option>
+                        <option value="mercedesbenz">Mercedes Benz</option>
+                        <option value="montblanc">Montblanc</option>
+                        <option value="montale">Montale</option>
+                        <option value="moschino">Moschino</option>
+                        <option value="natura">Natura</option>
+                        <option value="nautica">Nautica</option>
+                        <option value="onedirection">One Direction</option>
+                        <option value="orientica">Orientica</option>
+                        <option value="oscardelarenta">Oscar de la Renta</option>
+                        <option value="pacorabanne">Paco Rabanne</option>
+                        <option value="parfumsdemarly">Parfums de Marly</option>
+                        <option value="parishilton">Paris Hilton</option>
+                        <option value="perryellis">Perry Ellis</option>
+                        <option value="pinosilvestre">Pino Silvestre</option>
+                        <option value="prada">Prada</option>
+                        <option value="ralphlauren">Ralph Lauren</option>
+                        <option value="rasasi">Rasasi</option>
+                        <option value="reyane">Reyane</option>
+                        <option value="selenagomez">Selena Gomez</option>
+                        <option value="shakira">Shakira</option>
+                        <option value="sofiavergara">Sofia Vergara</option>
+                        <option value="tedlapidus">Ted Lapidus</option>
+                        <option value="thierrimugler">Thierry Mugler</option>
+                        <option value="tomford">Tom Ford</option>
+                        <option value="tommyhilfiger">Tommy Hilfiger</option>
+                        <option value="tous">Tous</option>
+                        <option value="valentino">Valentino</option>
+                        <option value="versace">Versace</option>
+                        <option value="victoriasecret">Victoria Secret</option>
+                        <option value="victorinox">Victorinox</option>
+                        <option value="viktor&rolf">Viktor & Rolf</option>
+                        <option value="yanbal">Yanbal</option>
+                        <option value="yvessaintlaurent">Yves Saint Laurent</option>
+                        <option value="zlatan">Zlatan</option>
+                    </select>
+                    <select id="perfumeSelect" class="hidden">
+                        <option value="">Selecciona un perfume</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>3. Elige el Tamaño y Precio</h2>
+                <p>Selecciona la presentación que prefieras para tu fragancia.</p>
+                <div class="size-options" id="tamañoMenu">
+                    <button class="choice-button" data-tamaño="30ml" data-precio="20000">30 ml ($20.000)</button>
+                    <button class="choice-button" data-tamaño="60ml" data-precio="40000">60 ml ($40.000)</button>
+                    <button class="choice-button" data-tamaño="80ml" data-precio="60000">80 ml ($60.000)</button>
+                    <button class="choice-button" data-tamaño="100ml" data-precio="85000">100 ml ($85.000)</button>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>4. Selecciona tu Método de Pago</h2><img src="imagen\nequi.jpg" alt="Nequi Logo"width="300" height="300">
+                <p>Elige cómo deseas realizar el pago.</p>
+                <div class="payment-options" id="paymentMethodMenu">
+                    <button class="choice-button payment-nequi" data-metodo="nequi">
+    <img src="imagen\nequicono.jpg" alt="Nequi Logo" width="50" height="80"> Nequi
+                    <button class="choice-button payment-cash" data-metodo="efectivo">
+                        <i class="bi bi-cash-coin"></i> Efectivo (Contra entrega)
+                    </button>
+                </div>
+                <p class="nequi-info hidden" id="nequiInfo">
+                    Por favor, envía el valor total de tu pedido al número de Nequi: <strong>313 809 4678</strong>.
+                    Incluye tu nombre y el perfume en la descripción del pago.
+                </p>
+            </div>
+
+            <div class="section-card summary-card">
+                <h2 class="summary-title">Resumen de Tu Pedido</h2>
+                <div class="message-area" id="messageArea">
+                    Por favor, completa todos los campos para ver el resumen de tu pedido.
+                </div>
+                <button class="whatsapp-button" id="sendWhatsappButton">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="whatsapp-icon">
+                    Enviar Pedido por WhatsApp
+                </button>
+                <p class="final-note">¡Gracias por elegir **Mis Fragancias Jhon Dainer Arias**!</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageArea = document.getElementById('messageArea');
+            const nombreInput = document.getElementById('nombreInput');
+            const celularInput = document.getElementById('celularInput');
+            const tamañoButtons = document.querySelectorAll('#tamañoMenu .choice-button');
+            const paymentMethodButtons = document.querySelectorAll('#paymentMethodMenu .choice-button');
+            const casaSelect = document.getElementById('casaSelect');
+            const perfumeSelect = document.getElementById('perfumeSelect');
+            const perfumeSelectContainer = document.getElementById('perfumeSelectContainer'); // No usado en el nuevo HTML, pero mantenido por si acaso
+            const perfumeSearchInput = document.getElementById('perfumeSearchInput');
+            const perfumeSearchResults = document.getElementById('perfumeSearchResults');
+            const sendWhatsappButton = document.getElementById('sendWhatsappButton');
+            const nequiInfo = document.getElementById('nequiInfo');
+
+            // TU NÚMERO DE WHATSAPP CON CÓDIGO DE PAÍS (sin el signo +)
+            const yourWhatsappNumber = '573138094678'; // ¡CONFIRMA ESTE NÚMERO!
+
+            // --- Datos de Perfumes por Casa (tu data existente) ---
+            const perfumesByCasa = {
+                afnan: ["9am pour femme (femenino)", "9pm pour femme (femenino)", "9pm (masculino)", "9am (unisex)", "9pm rebel (unisex)"],
+                agataruizdelaprada: ["gotas de color (femenino)"],
+                ahli: ["ahli karpos (femenino)", "ahli vega (femenino)", "ahli corvus (femenino)"],
+                alharamain: ["dubai night (masculino)", "alharamain amber oud (unisex)", "amber oud gold (unisex)", "alharamain amber rouge (unisex)", "amber oud blue edition (unisex)"],
+                animale: ["aní­male (femenino)", "animale men (masculino)"],
+                antoniobanderas: ["blue seduction dama (femenino)", "blue seduction (masculino)", "king of seduction (masculino)", "the golden secret (masculino)"],
+                arianagrande: ["cloud (femenino)", "thank u next (femenino)", "ari (femenino)", "cloud pink (femenino)", "sweet like candy (femenino)", "mod vainilla (femenino)", "thank u next 2.0 (femenino)", "rem (femenino)"],
+                armaf: ["club de nuit dama (femenino)", "island bliss (femenino)", "yum yum (femenino)", "odyssey candee (femenino)", "club de nuit (masculino)", "mandarin sky (masculino)"],
+                arrurru: ["arrurru (femenino)"],
+                azzaro: ["azzaro (masculino)"],
+                "bath&bodyworks": ["velvet sugar (femenino)", "pink chiffon (femenino)", "loquito por ti (femenino)"],
+                benetton: ["tribu (femenino)"],
+                bharara: ["bharara niche femme (femenino)", "bharara rose (femenino)", "bharara king (masculino)", "bharara onix (masculino)"],
+                bilieeilish: ["eilish (femenino)"],
+                "bondn°9": ["bond n°9 signature (femenino)", "bleecker street (unisex)"],
+                britneyspears: ["fantasy (femenino)", "fantasy night (femenino)"],
+                burberry: ["burberry her (femenino)"],
+                bvlgari: ["omnia amethyste (femenino)", "omnia cristal (femenino)", "omnia paraiba (femenino)", "omnia coral (femenino)", "acqua (masculino)", "man in black (masculino)", "bvlgary man (masculino)"],
+                cacharel: ["amor amor (femenino)"],
+                calvinklein: ["ck in2u (femenino)", "eternity (femenino)", "euphoria (femenino)", "escape (femenino)", "eternity (masculino)", "escape (masculino)", "ckin2u men (masculino)", "ck one (unisex)"],
+                carolinaherrera: ["carolina herrera (femenino)", "ch (femenino)", "212 sexy (femenino)", "212 vip (femenino)", "212 vip rose (femenino)", "212 vip rose red (femenino)", "212 vip wild party (femenino)", "central park (femenino)", "good girl (femenino)", "prive (femenino)", "sublime (femenino)", "212 heroes for her (femenino)", "212 nyc mujer (femenino)", "very good girl glam (femenino)", "good girl legere (femenino)", "good girl blush (femenino)", "good girl supreme (femenino)", "ch queens (femenino)", "212 men nyc (masculino)", "212 vip (masculino)", "212 vip black own (masculino)", "212 vip black red (masculino)", "bad boy (masculino)", "central park men (masculino)", "prive men (masculino)", "212 heroes forever young (masculino)", "ch men (masculino)", "212 sexy men (masculino)", "212 men acqua (masculino)"],
+                cartier: ["must de cartier (femenino)", "santos (masculino)"],
+                chanel: ["chance (femenino)", "coco mademoiselle (femenino)", "chanel no 5 (femenino)", "bleu (masculino)", "allure sport (masculino)"],
+                christiandior: ["jadore (femenino)", "miss dior blooming bouquet (femenino)", "poison girl (femenino)", "miss dior parfum (femenino)", "faharenheit (masculino)", "sauvage (masculino)", "sauvage elixir (masculino)"],
+                clinique: ["clinique happy dama (femenino)", "clinique happy (masculino)"],
+                creed: ["carmina (femenino)", "aventus (masculino)", "silver mountain water (masculino)", "centaurus (unisex)"],
+                cristianoronaldo: ["cr7 legacy (masculino)", "cr7 (masculino)"],
+                diesel: ["bad (masculino)", "only the brave (masculino)", "spirit of the brave (masculino)", "plus men (masculino)", "diesel fuel for life (masculino)"],
+                dolcegabbana: ["imperatrice (femenino)", "light blue (femenino)", "the one (femenino)", "pineapple (femenino)", "q dolce gabbana (femenino)", "devotion (femenino)", "light blue (masculino)", "k (masculino)"],
+                dumontparis: ["nitro red (masculino)"],
+                elizabetharden: ["5th avenue (femenino)"],
+                elizabethtaylor: ["diamante blanco (femenino)"],
+                enriqueiglesias: ["adrenaline (masculino)"],
+                escada: ["moon sparkle (femenino)", "agua del sol (femenino)", "sorbetto rosso (femenino)", "rock in rio (femenino)", "taj sunset (femenino)"],
+                esika: ["dorsay (masculino)", "winner sport (masculino)"],
+                faconable: ["faconable (masculino)"],
+                ferrari: ["escuderia (masculino)"],
+                fredhayman: ["273 beverly hills (femenino)", "touch (femenino)"],
+                giardiniditoscana: ["bianco latte (unisex)"],
+                gillescantuel: ["arsenal (masculino)"],
+                giorgioarmani: ["acqua di gioia (femenino)", "si (femenino)", "acqua di gio (masculino)", "code (masculino)", "acqua di gio profumo (masculino)", "stronger with you (masculino)"],
+                givenchy: ["angel y demonio (femenino)", "organza (femenino)", "blue label givenchy (masculino)", "pi (masculino)"],
+                gucci: ["gucci (masculino)"],
+                guess: ["guess (femenino)"],
+                hugoboss: ["hugo woman (femenino)", "hugo xx (femenino)", "boss bottled (masculino)", "boss bottled night (masculino)", "boss dark blue (masculino)", "boss energise (masculino)", "boss iced (masculino)", "boss in motion (masculino)", "boss orange (masculino)", "boss unlimited (masculino)", "hugo boss red (masculino)", "hugo xy (masculino)", "hugo (masculino)", "boss bottled tonic (masculino)", "just different (masculino)", "boss element (masculino)", "boss bottled elixir (masculino)"],
+                ilmin: ["il roso (femenino)", "il femme (unisex)", "il kakuno (unisex)", "il ego (unisex)", "il dolce (unisex)", "il orgasme (unisex)", "il erotique (unisex)"],
+                isseymiyake: ["issey miyake (femenino)", "issey pour homme (masculino)", "issey miyake sport (masculino)", "issey miyake version 1992 (masculino)"],
+                jeanpaulgaultier: ["jean paul gaultier (femenino)", "scandal (femenino)", "scandal (masculino)", "le male (masculino)", "ultramale (masculino)", "le beau (masculino)", "le male elixir (masculino)", "le male le parfum (masculino)", "le beau paradise garden (masculino)"],
+                jeanpascal: ["jean pascal (masculino)"],
+                jesusdelpozo: ["halloween (femenino)", "halloween men (masculino)"],
+                juicycouture: ["viva la juicy (femenino)"],
+                justinbieber: ["next girlfriend (femenino)"],
+                katyperry: ["meaw (femenino)", "purr (femenino)"],
+                kenzo: ["flower (femenino)"],
+                killian: ["love dont be shy (femenino)", "black phantom (unisex)"],
+                kimkardashian: ["bff (femenino)"],
+                lacoste: ["lacoste magnetic (femenino)", "lacoste natural (femenino)", "lacoste sparkling (femenino)", "touch of pink (femenino)", "lacoste blanca (masculino)", "lacoste essential (masculino)", "lacoste noir negra (masculino)", "lacoste red (masculino)", "lacoste rouge (masculino)", "lacoste bleu (masculino)", "lacoste amarilla (masculino)"],
+                lancome: ["la vida es bella (femenino)"],
+                lattafa: ["yara (femenino)", "bade'e al oud sublime (femenino)", "yara moi (femenino)", "mayar (femenino)", "yara tous (femenino)", "haya (femenino)", "yara candy (femenino)", "noble blush (femenino)", "her confession (femenino)", "asad (masculino)", "fakhar black (masculino)", "asad zanzibar (masculino)", "asad bourbon (masculino)", "his confession (masculino)", "khamrah dukhan (masculino)", "bade'e al oud amethyst (unisex)", "bade'e al oud oud for glory (unisex)", "khamrah (unisex)", "shaheen gold (unisex)", "honor y glory (unisex)", "nebras (unisex)", "ajwad (unisex)", "khamrah qahwa (unisex)", "emeer (unisex)", "affection (unisex)"],
+                lelabo: ["santal 33 (unisex)"],
+                lizclaiborne: ["curve (masculino)"],
+                loewe: ["7 loewe (masculino)", "loewe solo (masculino)"],
+                lolitalempicka: ["lolita lempicka (femenino)"],
+                lorenzopazzaglia: ["summer hammer (unisex)"],
+                louisvuitton: ["l’immensité (masculino)", "imagination (masculino)", "ombre nomade (unisex)", "pacific chill (unisex)"],
+                maisonfrancisk: ["baccarat rouge (unisex)"],
+                maluma: ["maluma (femenino)", "maluma jade (femenino)", "onix royalty (masculino)", "garnet royalty (masculino)"],
+                mancera: ["red tobaco (unisex)", "amore café (unisex)"],
+                mercedesbenz: ["mercedes benz (masculino)"],
+                montblanc: ["legend (masculino)", "starwalker (masculino)", "emblem (masculino)", "explorer (masculino)", "explorer platinum (masculino)"],
+                montale: ["roses musk (femenino)", "crazy in love (femenino)", "intense café (unisex)", "starry night (unisex)", "arabians tonka (unisex)", "chocolate greedy (unisex)", "day dream (unisex)"],
+                moschino: ["toy 2 (femenino)", "toy 2 bubble gum (femenino)", "funny moschino (femenino)", "gold fresh couture (femenino)", "i love i love (femenino)", "toy 2 pearl (femenino)", "toy boy (masculino)"],
+                natura: ["kaiak (masculino)"],
+                nautica: ["náutica voyage (masculino)", "nautica voyage version 2006 (masculino)"],
+                onedirection: ["our moment (femenino)"],
+                orientica: ["imperial gold (masculino)", "amber rouge (unisex)", "royal amber (unisex)", "oud saffron (unisex)", "royal bleu (unisex)", "azure fantasy (unisex)"],
+                oscardelarenta: ["pour lui (masculino)"],
+                pacorabanne: ["black xs (femenino)", "lady million royal (femenino)", "lady million (femenino)", "olympea (femenino)", "olympea aqua (femenino)", "fame (femenino)", "black xs (masculino)", "one million royal (masculino)", "invictus (masculino)", "invictus aqua (masculino)", "invictus intense (masculino)", "invictus legend (masculino)", "one million (masculino)", "one million lucky (masculino)", "phantom (masculino)", "pure xs (masculino)", "invictus victory (masculino)", "black xs aphrodisiaque (masculino)", "black xs l'exces (masculino)", "one million golden oud (masculino)", "one million prive (masculino)", "invictus parfum (masculino)", "one million elixir (masculino)", "one million gold intense (masculino)", "invictus platinum (masculino)"],
+                parfumsdemarly: ["delina (femenino)", "pegasus (masculino)", "althair (masculino)"],
+                parishilton: ["can can (femenino)", "can can burlesque (femenino)", "gold rush (femenino)", "heires (femenino)", "paris hilton (femenino)", "dazzle (femenino)", "passport in paris (femenino)", "rose rush (femenino)", "gold rush (masculino)"],
+                perryellis: ["360 coral (femenino)", "360 mujer (femenino)", "360 men (masculino)", "360 red (masculino)"],
+                pinosilvestre: ["pino silvestre (masculino)"],
+                prada: ["candy night (femenino)", "luna rossa ocean (masculino)", "luna rossa carbon (masculino)"],
+                ralphlauren: ["ralph lauren (femenino)", "polo blue (masculino)", "polo red (masculino)", "polo ultra blue (masculino)"],
+                rasasi: ["hawas for him (masculino)"],
+                reyane: ["insurrection (masculino)"],
+                selenagomez: ["selena gomez (femenino)"],
+                shakira: ["rock (femenino)", "s (femenino)"],
+                sofiavergara: ["love (femenino)", "sofía vergara (femenino)"],
+                tedlapidus: ["lapidus (masculino)"],
+                thierrimugler: ["angel (femenino)", "angel (masculino)"],
+                tomford: ["ombre leather 16 (masculino)"],
+                tommyhilfiger: ["tommy girl (femenino)", "tommy boy (masculino)"],
+                tous: ["more more pink (femenino)"],
+                valentino: ["born in roma yellow (femenino)", "valentino uomo (masculino)", "born in roma (masculino)"],
+                versace: ["eros dama (femenino)", "bright crystal (femenino)", "yellow diamond (femenino)", "bright crystal parfum (femenino)", "eros (masculino)", "eros flame (masculino)", "eau fraiche (masculino)", "dylan blue (masculino)", "blue jeans (masculino)", "versace pour homme (masculino)", "eros energy (masculino)"],
+                victoriasecret: ["coconut passion (femenino)", "eau so sexy (femenino)", "mango (femenino)", "vainilla lace (femenino)", "sandia (femenino)", "strawberry champagne (femenino)", "bombshell (femenino)", "pure seduction (femenino)", "velvet petals (femenino)", "scandalous (femenino)", "pera (femenino)", "aqua kiss (femenino)"],
+                victorinox: ["swiss army for her (femenino)", "swiss army (masculino)"],
+                "viktor&rolf": ["spicebomb (masculino)"],
+                yanbal: ["gaia (femenino)", "osadia (femenino)", "ccori rosé (femenino)", "celos (femenino)", "cielo (femenino)", "temptation dama (femenino)", "osadia (masculino)", "solo (masculino)", "ohm (masculino)", "temptation (masculino)", "arom (masculino)", "adrenaline hm (masculino)", "43n paralel (masculino)"],
+                yvessaintlaurent: ["yves (masculino)", "m7 (masculino)"],
+                zlatan: ["zlatan ibrahimovic (masculino)"]
+            };
+            // --- Fin de Datos de Perfumes por Casa ---
+
+            // Combina todos los perfumes en una sola lista para la búsqueda
+            const allPerfumes = Object.values(perfumesByCasa).flat();
+
+            // Variables para almacenar las selecciones
+            let currentNombre = localStorage.getItem('nombreComprador') || '';
+            let currentCelular = localStorage.getItem('celularComprador') || '';
+            let currentPerfume = localStorage.getItem('perfumeSeleccionado') || ''; // Este será el perfume seleccionado, ya sea por búsqueda o dropdown
+            let currentTamaño = localStorage.getItem('tamañoSeleccionado') || '';
+            let currentPrecio = localStorage.getItem('precioSeleccionado') || '';
+            let currentMetodoPago = localStorage.getItem('metodoPagoSeleccionado') || '';
+
+            // Cargar valores iniciales desde localStorage y aplicar al UI
+            nombreInput.value = currentNombre;
+            celularInput.value = currentCelular;
+            
+            // Si hay un perfume seleccionado, poblar el select de casa y perfume
+            if (currentPerfume) {
+                let foundCasaKey = '';
+                for (const casaKey in perfumesByCasa) {
+                    if (perfumesByCasa[casaKey].includes(currentPerfume)) {
+                        foundCasaKey = casaKey;
+                        break;
+                    }
+                }
+                if (foundCasaKey) {
+                    casaSelect.value = foundCasaKey;
+                    populatePerfumeSelect(foundCasaKey);
+                    perfumeSelect.value = currentPerfume;
+                    perfumeSelect.classList.remove('hidden'); // Mostrar el select de perfumes
+                }
+            }
+
+            if (currentTamaño) {
+                tamañoButtons.forEach(button => {
+                    if (button.dataset.tamaño === currentTamaño) {
+                        button.classList.add('selected');
+                    } else {
+                        button.classList.remove('selected');
+                    }
+                });
+            }
+
+            if (currentMetodoPago) {
+                paymentMethodButtons.forEach(button => {
+                    if (button.dataset.metodo === currentMetodoPago) {
+                        button.classList.add('selected');
+                    } else {
+                        button.classList.remove('selected');
+                    }
+                });
+                if (currentMetodoPago === 'nequi') {
+                    nequiInfo.classList.remove('hidden');
+                } else {
+                    nequiInfo.classList.add('hidden');
+                }
+            }
+
+            /**
+             * Normaliza una cadena de texto para comparación (elimina acentos, convierte a minúsculas).
+             * @param {string} text - El texto a normalizar.
+             * @returns {string} El texto normalizado.
+             */
+            function normalizeText(text) {
+                return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            }
+
+            /**
+             * Actualiza el área de mensajes y el enlace de WhatsApp.
+             */
+            function updateMessageAndWhatsappLink() {
+                let message = "Completa todos los campos para ver el resumen de tu pedido.";
+                let whatsappText = "¡Hola Jhon Dainer Arias! Me gustaría hacer un pedido:\n\n";
+
+                const isReady = currentNombre && currentCelular && currentPerfume && currentTamaño && currentPrecio && currentMetodoPago;
+
+                if (currentNombre) {
+                    whatsappText += `Nombre: ${currentNombre}\n`;
+                }
+                if (currentCelular) {
+                    whatsappText += `Celular: ${currentCelular}\n`;
+                }
+
+                if (currentPerfume) {
+                    let perfumeDisplay = currentPerfume;
+                    const match = currentPerfume.match(/\((femenino|masculino|unisex)\)$/);
+                    let generoPerfume = '';
+                    if (match) {
+                        generoPerfume = match[1];
+                        perfumeDisplay = currentPerfume.replace(match[0], '').trim();
+                    }
+                    
+                    let foundCasaName = '';
+                    for (const casaKey in perfumesByCasa) {
+                        if (perfumesByCasa[casaKey].includes(currentPerfume)) {
+                            // Convertir la clave a nombre legible (e.g., "carolinaherrera" -> "Carolina Herrera")
+                            foundCasaName = casaKey.split(/(?=[A-Z])/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ').replace(/&/g, ' & ');
+                            break;
+                        }
+                    }
+                    if (foundCasaName) {
+                        whatsappText += `Perfume: ${perfumeDisplay} (${foundCasaName}, ${generoPerfume})\n`;
+                    } else {
+                        whatsappText += `Perfume: ${perfumeDisplay} (${generoPerfume})\n`;
+                    }
+                }
+
+                if (currentTamaño && currentPrecio) {
+                    whatsappText += `Tamaño: ${currentTamaño}\n`;
+                    whatsappText += `Precio: $${parseInt(currentPrecio).toLocaleString('es-CO')}\n`; // Formato de moneda Colombia
+                }
+
+                if (currentMetodoPago) {
+                    const metodoDisplay = currentMetodoPago === 'nequi' ? 'Nequi' : 'Efectivo (Contra entrega)';
+                    whatsappText += `Método de Pago: ${metodoDisplay}\n`;
+                }
+
+                if (isReady) {
+                    message = `¡Listo, ${currentNombre}! Tu pedido es:\n\n` +
+                              `Perfume: ${currentPerfume}\n` +
+                              `Tamaño: ${currentTamaño}\n` +
+                              `Precio: $${parseInt(currentPrecio).toLocaleString('es-CO')}\n` +
+                              `Método de Pago: ${currentMetodoPago === 'nequi' ? 'Nequi' : 'Efectivo (Contra entrega)'}\n\n` +
+                              `Presiona "Enviar Pedido por WhatsApp" para confirmar.`;
+                    sendWhatsappButton.disabled = false;
+                } else {
+                    sendWhatsappButton.disabled = true; // Deshabilita el botón si no está listo
+                }
+                
+                messageArea.textContent = message;
+                const encodedWhatsappText = encodeURIComponent(whatsappText);
+                sendWhatsappButton.onclick = () => {
+                    window.open(`https://wa.me/${yourWhatsappNumber}?text=${encodedWhatsappText}`, '_blank');
+                };
+            }
+
+            /**
+             * Rellena el select de perfumes basándose en la casa seleccionada.
+             * @param {string} casaKey - La clave de la casa perfumera.
+             */
+            function populatePerfumeSelect(casaKey) {
+                perfumeSelect.innerHTML = '<option value="">Selecciona un perfume</option>';
+                if (casaKey && perfumesByCasa[casaKey]) {
+                    perfumesByCasa[casaKey].forEach(perfume => {
+                        const option = document.createElement('option');
+                        option.value = perfume;
+                        option.textContent = perfume;
+                        perfumeSelect.appendChild(option);
+                    });
+                    perfumeSelect.classList.remove('hidden'); // Mostrar el select
+                } else {
+                    perfumeSelect.classList.add('hidden'); // Ocultar si no hay casa seleccionada
+                }
+            }
+
+            // --- Event Listeners ---
+
+            nombreInput.addEventListener('input', function() {
+                currentNombre = this.value;
+                localStorage.setItem('nombreComprador', currentNombre);
+                updateMessageAndWhatsappLink();
+            });
+
+            celularInput.addEventListener('input', function() {
+                currentCelular = this.value;
+                localStorage.setItem('celularComprador', currentCelular);
+                updateMessageAndWhatsappLink();
+            });
+
+            casaSelect.addEventListener('change', function() {
+                currentCasa = this.value;
+                localStorage.setItem('casaSeleccionada', currentCasa);
+                populatePerfumeSelect(currentCasa);
+                currentPerfume = ''; // Resetear el perfume seleccionado cuando cambia la casa
+                perfumeSelect.value = ''; // Resetear el valor del select de perfume
+                perfumeSearchInput.value = ''; // Limpiar el input de búsqueda
+                perfumeSearchResults.innerHTML = ''; // Limpiar resultados de búsqueda
+                localStorage.removeItem('perfumeSeleccionado');
+                updateMessageAndWhatsappLink();
+            });
+
+            perfumeSelect.addEventListener('change', function() {
+                currentPerfume = this.value;
+                localStorage.setItem('perfumeSeleccionado', currentPerfume);
+                perfumeSearchInput.value = ''; // Limpiar el input de búsqueda al seleccionar del dropdown
+                perfumeSearchResults.innerHTML = ''; // Limpiar resultados de búsqueda
+                updateMessageAndWhatsappLink();
+            });
+            
+            // Búsqueda de Perfumes
+            perfumeSearchInput.addEventListener('input', function() {
+                const searchTerm = normalizeText(this.value);
+                perfumeSearchResults.innerHTML = ''; // Limpiar resultados anteriores
+                perfumeSelect.value = ''; // Resetear el select de perfume
+                localStorage.removeItem('perfumeSeleccionado'); // Asegurar que no quede un perfume del select
+                currentPerfume = ''; // Resetear la variable currentPerfume
+
+                if (searchTerm.length > 2) { // Empieza a buscar después de 2 caracteres
+                    const matchingPerfumes = allPerfumes.filter(perfume => normalizeText(perfume).includes(searchTerm));
+                    if (matchingPerfumes.length > 0) {
+                        const ul = document.createElement('ul');
+                        matchingPerfumes.slice(0, 10).forEach(perfume => { // Mostrar solo los primeros 10 resultados
+                            const li = document.createElement('li');
+                            li.textContent = perfume;
+                            li.dataset.perfume = perfume;
+                            li.addEventListener('click', function() {
+                                currentPerfume = this.dataset.perfume;
+                                localStorage.setItem('perfumeSeleccionado', currentPerfume);
+                                perfumeSearchInput.value = this.textContent; // Poner el nombre completo en el input
+                                perfumeSearchResults.innerHTML = ''; // Limpiar resultados
+                                casaSelect.value = ''; // Deseleccionar la casa para evitar conflictos
+                                localStorage.removeItem('casaSeleccionada'); // Limpiar casa en localStorage
+                                perfumeSelect.classList.add('hidden'); // Ocultar el select de perfume
+                                updateMessageAndWhatsappLink();
+                            });
+                            ul.appendChild(li);
+                        });
+                        perfumeSearchResults.appendChild(ul);
+                    } else {
+                        perfumeSearchResults.innerHTML = '<p>No se encontraron resultados.</p>';
+                    }
+                } else {
+                    perfumeSearchResults.innerHTML = '';
+                }
+                updateMessageAndWhatsappLink(); // Actualizar mensaje incluso si no hay búsqueda activa
+            });
+
+            tamañoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    tamañoButtons.forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+                    currentTamaño = this.dataset.tamaño;
+                    currentPrecio = this.dataset.precio;
+                    localStorage.setItem('tamañoSeleccionado', currentTamaño);
+                    localStorage.setItem('precioSeleccionado', currentPrecio);
+                    updateMessageAndWhatsappLink();
+                });
+            });
+
+            paymentMethodButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paymentMethodButtons.forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+                    currentMetodoPago = this.dataset.metodo;
+                    localStorage.setItem('metodoPagoSeleccionado', currentMetodoPago);
+
+                    if (currentMetodoPago === 'nequi') {
+                        nequiInfo.classList.remove('hidden');
+                    } else {
+                        nequiInfo.classList.add('hidden');
+                    }
+                    updateMessageAndWhatsappLink();
+                });
+            });
+
+            // Llamada inicial para establecer el estado del mensaje y botón
+            updateMessageAndWhatsappLink();
+        });
+    </script>
+</body>
+</html>
