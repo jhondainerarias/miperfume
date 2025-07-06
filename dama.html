@@ -4,29 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fragancias para Dama - Tu Perfumería</title>
-    <link rel="stylesheet" href="styles.css" type="text/css"> 
     
     <style>
         /* --- ESTILOS GLOBALES Y DE BASE PARA LA PÁGINA DAMA --- */
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante y legible */
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom right, #fce4ec, #f0f4f8); /* Degradado suave de rosas y grises */
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh; /* Asegura que el degradado cubra toda la altura */
-            scroll-behavior: smooth;
+            /* CORRECCIÓN: Usar barra inclinada hacia adelante (/) en la ruta */
+            /* Si 'fondomujer.jpg' está directamente en la misma carpeta que este HTML, la ruta es solo 'fondomujer.jpg' */
+            /* Si está en una subcarpeta llamada 'imagen', la ruta sería 'imagen/fondomujer.jpg' */
+            background-image: url('imagen/mujerperfum.jpg'); 
+            
+            /* Cubre todo el área disponible sin dejar espacios vacíos */
+            background-size: cover; 
+            
+            /* Centra la imagen en el fondo */
+            background-position: center center; 
+            
+            /* Hace que la imagen se quede fija al hacer scroll */
+            background-attachment: fixed; 
+            
+            /* Opcional: Asegura que el fondo no se repita */
+            background-repeat: no-repeat; 
+
+            /* Opcional: Estilos para que el contenido sea visible y se pueda desplazar */
+            color: #fff; /* Color de texto blanco para contraste */
+            min-height: 150vh; /* Para asegurar que haya suficiente contenido y puedas hacer scroll */
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
         }
 
-        h1, h2, h3 {
+        /* Opcional: Algunos estilos básicos para el contenido para que lo veas mejor */
+        header, main, footer {
+            /* Considera aumentar la opacidad (el último número) si el texto no se lee bien */
+            background-color: rgba(240, 239, 239, 0.4); /* Levemente más opaco para mejor lectura */
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+        /* --- Estilos para la tabla de fragancias --- */
+.table-container {
+    max-width: 900px; /* Ancho máximo para la tabla */
+    margin: 40px auto; /* Centra la tabla y da espacio */
+    background: rgba(245, 6, 253, 0.9)/* Fondo blanco casi opaco */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre las celdas */
+    color: #333; /* Color de texto oscuro para la tabla */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
+}
+
+th {
+    background-color: #880e4f; /* Color de cabecera que combine con tus títulos */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.1em;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para filas pares (efecto cebra) */
+}
+
+tbody tr:hover {
+    background-color: #f0e6f2; /* Color al pasar el ratón por la fila */
+}
+
+td strong {
+    color: #6a1b9a; /* Color para las casas de perfume en negrita */
+}
+
+/* Adaptabilidad de la tabla para pantallas pequeñas */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block; /* Hace que los elementos de la tabla se comporten como bloques */
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px; /* Oculta la cabecera original en móviles */
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden; /* Asegura que los bordes redondeados se vean bien */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Espacio para la etiqueta de la columna */
+        text-align: right;
+    }
+
+    td:last-child {
+        border-bottom: none; /* Elimina el borde inferior de la última celda */
+    }
+
+    /* Pseudo-elemento para mostrar la etiqueta de la columna */
+    td:before {
+        content: attr(data-label); /* Usa el atributo data-label como contenido */
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #880e4f; /* Color de las etiquetas */
+    }
+}
+        
+        h1, h2{
             font-family: 'Playfair Display', serif; /* Una fuente con serifa para títulos elegantes */
-            color: #880e4f; /* Borgoña o morado oscuro para contraste femenino */
+            color: lab(55.19% 85.1 -0.89); /* Borgoña o morado oscuro para contraste femenino */
             text-align: center;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-
+   h3,h4,h5,h5{
+            font-family: 'Playfair Display', serif; /* Una fuente con serifa para títulos elegantes */
+            color: lab(3.52% 18.09 -12.38); /* Borgoña o morado oscuro para contraste femenino */
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
         h1 {
             font-size: 3.5em;
             padding-top: 80px; /* Espacio para que no se solape con el menú flotante */
@@ -41,7 +160,7 @@
         p {
             font-size: 1.1em;
             margin-bottom: 20px;
-            color: #555;
+            color: #555; /* Gris oscuro para los párrafos, asegúrate de que contraste con el fondo semi-transparente */
             text-align: center;
             max-width: 800px;
             margin-left: auto;
@@ -282,89 +401,307 @@
     </nav>
 
     <header>
-         <br>
-        <h2 >perfumeria mis fragancias jhon dainer arias</h2>
+        <br>
+        <h2>Perfumería Mis Fragancias Jhon Dainer Arias</h2>
         <h1>Delicadeza y Esencia: Fragancias para la Mujer Moderna</h1>
-        <p>Explora nuestra exclusiva colección de perfumes femeninos, diseñados para capturar la elegancia, la pasión y la sofisticación de cada mujer. Encuentra tu aroma distintivo.</p>
-    </header>
-<section class="article-content">
-    <p>Explora un mundo de notas florales, frutales, orientales y chipre, diseñadas para complementar tu personalidad y dejar una estela inolvidable. Te invitamos a conocer las prestigiosas casas perfumeras y sus creaciones que forman parte de nuestro catálogo para dama:</p>
+        <h3>Explora nuestra exclusiva colección de perfumes femeninos, diseñados para capturar la elegancia, la pasión y la sofisticación de cada mujer. Encuentra tu aroma distintivo.</h3>
+    <section class="article-content">
 
-    <ul class="perfume-list">
-        <li><strong>Afnan:</strong> 9am pour femme, 9pm pour femme</li>
-        <li><strong>Agata Ruiz de la Prada:</strong> Gotas de color</li>
-        <li><strong>Ahli:</strong> Ahli Karpos, Ahli Vega, Ahli Corvus</li>
-        <li><strong>Animale:</strong> Anímale</li>
-        <li><strong>Antonio Banderas:</strong> Blue Seduction Dama</li>
-        <li><strong>Ariana Grande:</strong> Cloud, Thank U Next, Ari, Cloud Pink, Sweet Like Candy, Mod Vainilla, Thank U Next 2.0, Rem</li>
-        <li><strong>Armaf:</strong> Club de Nuit Dama, Island Bliss, Yum Yum, Odyssey Candee</li>
-        <li><strong>Arrurru:</strong> Arrurru</li>
-        <li><strong>Bath & Body Works:</strong> Velvet Sugar, Pink Chiffon, Loquito Por Ti</li>
-        <li><strong>Benetton:</strong> Tribu</li>
-        <li><strong>Bharara:</strong> Bharara Niche Femme, Bharara Rose</li>
-        <li><strong>Billie Eilish:</strong> Eilish</li>
-        <li><strong>Bond N°9:</strong> Bond N°9 Signature</li>
-        <li><strong>Britney Spears:</strong> Fantasy, Fantasy Night</li>
-        <li><strong>Burberry:</strong> Burberry Her</li>
-        <li><strong>Bvlgari:</strong> Omnia Amethyste, Omnia Cristal, Omnia Paraiba, Omnia Coral</li>
-        <li><strong>Cacharel:</strong> Amor Amor</li>
-        <li><strong>Calvin Klein:</strong> CK In2U, Eternity, Euphoria, Escape</li>
-        <li><strong>Carolina Herrera:</strong> Carolina Herrera, CH, 212 Sexy, 212 VIP, 212 VIP Rose, 212 VIP Rose Red, 212 VIP Wild Party, Central Park, Good Girl, Prive, Sublime, 212 Heroes for Her, 212 NYC Mujer, Very Good Girl Glam, Good Girl Legere, Good Girl Blush, Good Girl Supreme, CH Queens</li>
-        <li><strong>Cartier:</strong> Must de Cartier</li>
-        <li><strong>Chanel:</strong> Chance, Coco Mademoiselle, Chanel No 5</li>
-        <li><strong>Christian Dior:</strong> Jadore, Miss Dior Blooming Bouquet, Poison Girl, Miss Dior Parfum</li>
-        <li><strong>Clinique:</strong> Clinique Happy Dama</li>
-        <li><strong>Creed:</strong> Carmina</li>
-        <li><strong>Dolce & Gabbana:</strong> Imperatrice, Light Blue, The One, Pineapple, Q Dolce Gabbana, Devotion</li>
-        <li><strong>Elizabeth Arden:</strong> 5th Avenue</li>
-        <li><strong>Elizabeth Taylor:</strong> Diamante Blanco</li>
-        <li><strong>Escada:</strong> Moon Sparkle, Agua del Sol, Sorbetto Rosso, Rock in Rio, Taj Sunset</li>
-        <li><strong>Fred Hayman:</strong> 273 Beverly Hills, Touch</li>
-        <li><strong>Giorgio Armani:</strong> Acqua di Gioia, Si</li>
-        <li><strong>Givenchy:</strong> Angel y Demonio, Organza</li>
-        <li><strong>Guess:</strong> Guess</li>
-        <li><strong>Hugo Boss:</strong> Hugo Woman, Hugo XX</li>
-        <li><strong>Ilmin:</strong> Il Roso</li>
-        <li><strong>Issey Miyake:</strong> Issey Miyake</li>
-        <li><strong>Jean Paul Gaultier:</strong> Jean Paul Gaultier, Scandal</li>
-        <li><strong>Jesús del Pozo:</strong> Halloween</li>
-        <li><strong>Juicy Couture:</strong> Viva La Juicy</li>
-        <li><strong>Justin Bieber:</b> Next Girlfriend</li>
-        <li><strong>Katy Perry:</strong> Meaw, Purr</li>
-        <li><strong>Kenzo:</strong> Flower</li>
-        <li><strong>Killian:</strong> Love Don't Be Shy</li>
-        <li><strong>Kim Kardashian:</strong> BFF</li>
-        <li><strong>Lacoste:</strong> Lacoste Magnetic, Lacoste Natural, Lacoste Sparkling, Touch of Pink</li>
-        <li><strong>Lancome:</strong> La Vida es Bella</li>
-        <li><strong>Lattafa:</strong> Yara, Bade'e Al Oud Sublime, Yara Moi, Mayar, Yara Tous, Haya, Yara Candy, Noble Blush, Her Confession</li>
-        <li><strong>Lolita Lempicka:</strong> Lolita Lempicka</li>
-        <li><strong>Maluma:</strong> Maluma, Maluma Jade</li>
-        <li><strong>Montale:</strong> Roses Musk, Crazy In Love</li>
-        <li><strong>Moschino:</strong> Toy 2, Toy 2 Bubble Gum, Funny Moschino, Gold Fresh Couture, I Love I Love, Toy 2 Pearl</li>
-        <li><strong>One Direction:</strong> Our Moment</li>
-        <li><strong>Paco Rabanne:</strong> Black XS, Lady Million Royal, Lady Million, Olympea, Olympea Aqua, Fame</li>
-        <li><strong>Parfums de Marly:</strong> Delina</li>
-        <li><strong>Paris Hilton:</strong> Can Can, Can Can Burlesque, Gold Rush, Heires, Paris Hilton, Dazzle, Passport In Paris, Rose Rush</li>
-        <li><strong>Perry Ellis:</strong> 360 Coral, 360 Mujer</li>
-        <li><strong>Prada:</strong> Candy Night</li>
-        <li><strong>Ralph Lauren:</strong> Ralph Lauren</li>
-        <li><strong>Selena Gomez:</strong> Selena Gomez</li>
-        <li><strong>Shakira:</strong> Rock, S</li>
-        <li><strong>Sofia Vergara:</strong> Love, Sofía Vergara</li>
-        <li><strong>Thierry Mugler:</strong> Angel</li>
-        <li><strong>Tommy Hilfiger:</strong> Tommy Girl</li>
-        <li><strong>Tous:</strong> More More Pink</li>
-        <li><strong>Valentino:</strong> Born in Roma Yellow</li>
-        <li><strong>Versace:</strong> Eros Dama, Bright Crystal, Yellow Diamond, Bright Crystal Parfum</li>
-        <li><strong>Victoria Secret:</strong> Coconut Passion, Eau So Sexy, Mango, Vainilla Lace, Sandia, Strawberry Champagne, Bombshell, Pure Seduction, Velvet Petals, Scandalous, Pera, Aqua Kiss</li>
-        <li><strong>Victorinox:</strong> Swiss Army For Her</li>
-        <li><strong>Yanbal:</strong> Gaia, Osadia, Ccori Rosé, Celos, Cielo, Temptation Dama</li>
-    </ul>
-</section>
+       <section class="article-content">
+    <h4>Explora un mundo de notas florales, frutales, orientales y chipre, diseñadas para complementar tu personalidad y dejar una estela inolvidable. Te invitamos a conocer las prestigiosas casas perfumeras y sus creaciones que forman parte de nuestro catálogo para dama:</h4>
 
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>marca de Perfumes</th>
+                    <th>Fragancias cada fragancia esta separada por una , coma</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Afnan</strong></td>
+                    <td data-label="Fragancias">9am pour femme, 9pm pour femme</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Agata Ruiz de la Prada</strong></td>
+                    <td data-label="Fragancias">Gotas de color</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Ahli</strong></td>
+                    <td data-label="Fragancias">Ahli Karpos, Ahli Vega, Ahli Corvus</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Animale</strong></td>
+                    <td data-label="Fragancias">Anímale</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Antonio Banderas</strong></td>
+                    <td data-label="Fragancias">Blue Seduction Dama</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Ariana Grande</strong></td>
+                    <td data-label="Fragancias">Cloud, Thank U Next, Ari, Cloud Pink, Sweet Like Candy, Mod Vainilla, Thank U Next 2.0, Rem</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Armaf</strong></td>
+                    <td data-label="Fragancias">Club de Nuit Dama, Island Bliss, Yum Yum, Odyssey Candee</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Arrurru</strong></td>
+                    <td data-label="Fragancias">Arrurru</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Bath & Body Works</strong></td>
+                    <td data-label="Fragancias">Velvet Sugar, Pink Chiffon, Loquito Por Ti</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Benetton</strong></td>
+                    <td data-label="Fragancias">Tribu</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Bharara</strong></td>
+                    <td data-label="Fragancias">Bharara Niche Femme, Bharara Rose</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Billie Eilish</strong></td>
+                    <td data-label="Fragancias">Eilish</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Bond N°9</strong></td>
+                    <td data-label="Fragancias">Bond N°9 Signature</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Britney Spears</strong></td>
+                    <td data-label="Fragancias">Fantasy, Fantasy Night</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Burberry</strong></td>
+                    <td data-label="Fragancias">Burberry Her</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Bvlgari</strong></td>
+                    <td data-label="Fragancias">Omnia Amethyste, Omnia Cristal, Omnia Paraiba, Omnia Coral</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Cacharel</strong></td>
+                    <td data-label="Fragancias">Amor Amor</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Calvin Klein</strong></td>
+                    <td data-label="Fragancias">CK In2U, Eternity, Euphoria, Escape</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Carolina Herrera</strong></td>
+                    <td data-label="Fragancias">Carolina Herrera, CH, 212 Sexy, 212 VIP, 212 VIP Rose, 212 VIP Rose Red, 212 VIP Wild Party, Central Park, Good Girl, Prive, Sublime, 212 Heroes for Her, 212 NYC Mujer, Very Good Girl Glam, Good Girl Legere, Good Girl Blush, Good Girl Supreme, CH Queens</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Cartier</strong></td>
+                    <td data-label="Fragancias">Must de Cartier</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Chanel</strong></td>
+                    <td data-label="Fragancias">Chance, Coco Mademoiselle, Chanel No 5</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Christian Dior</strong></td>
+                    <td data-label="Fragancias">Jadore, Miss Dior Blooming Bouquet, Poison Girl, Miss Dior Parfum</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Clinique</strong></td>
+                    <td data-label="Fragancias">Clinique Happy Dama</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Creed</strong></td>
+                    <td data-label="Fragancias">Carmina</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Dolce & Gabbana</strong></td>
+                    <td data-label="Fragancias">Imperatrice, Light Blue, The One, Pineapple, Q Dolce Gabbana, Devotion</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Elizabeth Arden</strong></td>
+                    <td data-label="Fragancias">5th Avenue</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Elizabeth Taylor</strong></td>
+                    <td data-label="Fragancias">Diamante Blanco</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Escada</strong></td>
+                    <td data-label="Fragancias">Moon Sparkle, Agua del Sol, Sorbetto Rosso, Rock in Rio, Taj Sunset</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Fred Hayman</strong></td>
+                    <td data-label="Fragancias">273 Beverly Hills, Touch</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Giorgio Armani</strong></td>
+                    <td data-label="Fragancias">Acqua di Gioia, Si</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Givenchy</strong></td>
+                    <td data-label="Fragancias">Angel y Demonio, Organza</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Guess</strong></td>
+                    <td data-label="Fragancias">Guess</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Hugo Boss</strong></td>
+                    <td data-label="Fragancias">Hugo Woman, Hugo XX</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Ilmin</strong></td>
+                    <td data-label="Fragancias">Il Roso</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Issey Miyake</strong></td>
+                    <td data-label="Fragancias">Issey Miyake</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Jean Paul Gaultier</strong></td>
+                    <td data-label="Fragancias">Jean Paul Gaultier, Scandal</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Jesús del Pozo</strong></td>
+                    <td data-label="Fragancias">Halloween</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Juicy Couture</strong></td>
+                    <td data-label="Fragancias">Viva La Juicy</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Justin Bieber</strong></td>
+                    <td data-label="Fragancias">Next Girlfriend</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Katy Perry</strong></td>
+                    <td data-label="Fragancias">Meaw, Purr</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Kenzo</strong></td>
+                    <td data-label="Fragancias">Flower</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Killian</strong></td>
+                    <td data-label="Fragancias">Love Don't Be Shy</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Kim Kardashian</strong></td>
+                    <td data-label="Fragancias">BFF</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Lacoste</strong></td>
+                    <td data-label="Fragancias">Lacoste Magnetic, Lacoste Natural, Lacoste Sparkling, Touch of Pink</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Lancome</strong></td>
+                    <td data-label="Fragancias">La Vida es Bella</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Lattafa</strong></td>
+                    <td data-label="Fragancias">Yara, Bade'e Al Oud Sublime, Yara Moi, Mayar, Yara Tous, Haya, Yara Candy, Noble Blush, Her Confession</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Lolita Lempicka</strong></td>
+                    <td data-label="Fragancias">Lolita Lempicka</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Maluma</strong></td>
+                    <td data-label="Fragancias">Maluma, Maluma Jade</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Montale</strong></td>
+                    <td data-label="Fragancias">Roses Musk, Crazy In Love</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Moschino</strong></td>
+                    <td data-label="Fragancias">Toy 2, Toy 2 Bubble Gum, Funny Moschino, Gold Fresh Couture, I Love I Love, Toy 2 Pearl</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>One Direction</strong></td>
+                    <td data-label="Fragancias">Our Moment</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Paco Rabanne</strong></td>
+                    <td data-label="Fragancias">Black XS, Lady Million Royal, Lady Million, Olympea, Olympea Aqua, Fame</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Parfums de Marly</strong></td>
+                    <td data-label="Fragancias">Delina</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Paris Hilton</strong></td>
+                    <td data-label="Fragancias">Can Can, Can Can Burlesque, Gold Rush, Heires, Paris Hilton, Dazzle, Passport In Paris, Rose Rush</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Perry Ellis</strong></td>
+                    <td data-label="Fragancias">360 Coral, 360 Mujer</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Prada</strong></td>
+                    <td data-label="Fragancias">Candy Night</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Ralph Lauren</strong></td>
+                    <td data-label="Fragancias">Ralph Lauren</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Selena Gomez</strong></td>
+                    <td data-label="Fragancias">Selena Gomez</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Shakira</strong></td>
+                    <td data-label="Fragancias">Rock, S</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Sofia Vergara</strong></td>
+                    <td data-label="Fragancias">Love, Sofía Vergara</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Thierry Mugler</strong></td>
+                    <td data-label="Fragancias">Angel</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Tommy Hilfiger</strong></td>
+                    <td data-label="Fragancias">Tommy Girl</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Tous</strong></td>
+                    <td data-label="Fragancias">More More Pink</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Valentino</strong></td>
+                    <td data-label="Fragancias">Born in Roma Yellow</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Versace</strong></td>
+                    <td data-label="Fragancias">Eros Dama, Bright Crystal, Yellow Diamond, Bright Crystal Parfum</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Victoria Secret</strong></td>
+                    <td data-label="Fragancias">Coconut Passion, Eau So Sexy, Mango, Vainilla Lace, Sandia, Strawberry Champagne, Bombshell, Pure Seduction, Velvet Petals, Scandalous, Pera, Aqua Kiss</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Victorinox</strong></td>
+                    <td data-label="Fragancias">Swiss Army For Her</td>
+                </tr>
+                <tr>
+                    <td data-label="Casa de Perfumes"><strong>Yanbal</strong></td>
+                    <td data-label="Fragancias">Gaia, Osadia, Ccori Rosé, Celos, Cielo, Temptation Dama</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <p>Cada fragancia es una invitación a realzar tu belleza y confianza. Te animamos a explorar nuestra selección y encontrar el aroma que te represente a la perfección.</p>
+    <p>recuerda  la marca y locion que te gusto vea a la opcion hacer una compra   .</p>
 
-  
+</section>
+                     <h2>Perfumería Mis Fragancias Jhon Dainer Arias</h2>
+      
 
-    </body>
+
+</body>
 </html>
