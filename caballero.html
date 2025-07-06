@@ -5,37 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fragancias para Caballero - Tu Perfumería</title>
     <link rel="stylesheet" href="styles.css" type="text/css"> 
-    
-    <style>
-        /* --- ESTILOS GLOBALES Y DE BASE PARA LA PÁGINA CABALLERO --- */
+     <style>
+        /* --- ESTILOS GLOBALES Y DE BASE PARA LA PÁGINA DAMA --- */
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante y legible */
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom left, #e0e7ee, #a8c0d8); /* Degradado suave de grises azulados a azules profundos */
-            color: #222;
-            line-height: 1.6;
-            min-height: 100vh; /* Asegura que el degradado cubra toda la altura */
-            scroll-behavior: smooth;
+            /* CORRECCIÓN: Usar barra inclinada hacia adelante (/) en la ruta */
+            /* Si 'fondomujer.jpg' está directamente en la misma carpeta que este HTML, la ruta es solo 'fondomujer.jpg' */
+            /* Si está en una subcarpeta llamada 'imagen', la ruta sería 'imagen/fondomujer.jpg' */
+            background-image: url('imagen/hombre.jpg'); 
+            
+            /* Cubre todo el área disponible sin dejar espacios vacíos */
+            background-size: cover; 
+            
+            /* Centra la imagen en el fondo */
+            background-position: center center; 
+            
+            /* Hace que la imagen se quede fija al hacer scroll */
+            background-attachment: fixed; 
+            
+            /* Opcional: Asegura que el fondo no se repita */
+            background-repeat: no-repeat; 
+
+            /* Opcional: Estilos para que el contenido sea visible y se pueda desplazar */
+            color: #9c9c9c; /* Color de texto blanco para contraste */
+            min-height: 150vh; /* Para asegurar que haya suficiente contenido y puedas hacer scroll */
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
         }
 
-        h1, h2, h3 {
+        /* Opcional: Algunos estilos básicos para el contenido para que lo veas mejor */
+        header, main, footer {
+            /* Considera aumentar la opacidad (el último número) si el texto no se lee bien */
+            background-color: rgba(240, 239, 239, 0.4); /* Levemente más opaco para mejor lectura */
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+        /* --- Estilos para la tabla de fragancias --- */
+.table-container {
+    max-width: 900px; /* Ancho máximo para la tabla */
+    margin: 40px auto; /* Centra la tabla y da espacio */
+    background: rgba(0, 26, 255, 0.9)/* Fondo blanco casi opaco */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre las celdas */
+    color: #333; /* Color de texto oscuro para la tabla */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea separadora entre filas */
+}
+
+th {
+    background-color: #880e4f; /* Color de cabecera que combine con tus títulos */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.1em;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para filas pares (efecto cebra) */
+}
+
+tbody tr:hover {
+    background-color: #f0e6f2; /* Color al pasar el ratón por la fila */
+}
+
+td strong {
+    color: #6a1b9a; /* Color para las casas de perfume en negrita */
+}
+
+/* Adaptabilidad de la tabla para pantallas pequeñas */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block; /* Hace que los elementos de la tabla se comporten como bloques */
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px; /* Oculta la cabecera original en móviles */
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden; /* Asegura que los bordes redondeados se vean bien */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Espacio para la etiqueta de la columna */
+        text-align: right;
+    }
+
+    td:last-child {
+        border-bottom: none; /* Elimina el borde inferior de la última celda */
+    }
+
+    /* Pseudo-elemento para mostrar la etiqueta de la columna */
+    td:before {
+        content: attr(data-label); /* Usa el atributo data-label como contenido */
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #880e4f; /* Color de las etiquetas */
+    }
+}
+        
+        h1, h2{
             font-family: 'Playfair Display', serif; /* Una fuente con serifa para títulos elegantes */
-            color: #057ef8; /* Azul marino oscuro para contraste masculino */
+            color: lab(13.73% 43.33 -51.75); /* Borgoña o morado oscuro para contraste femenino */
             text-align: center;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-
+   h3,h4,h5,h5{
+            font-family: 'Playfair Display', serif; /* Una fuente con serifa para títulos elegantes */
+            color: lab(0.39% 2 -1.43); /* Borgoña o morado oscuro para contraste femenino */
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
         h1 {
             font-size: 3.5em;
             padding-top: 80px; /* Espacio para que no se solape con el menú flotante */
             margin-bottom: 40px;
         }
 
-        h2 {           
-             color: #010b14; /* Azul marino oscuro para contraste masculino */
-
+        h2 {
             font-size: 2.5em;
             margin-top: 50px;
         }
@@ -43,7 +160,7 @@
         p {
             font-size: 1.1em;
             margin-bottom: 20px;
-            color: #444;
+            color: #fd6702; /* Gris oscuro para los párrafos, asegúrate de que contraste con el fondo semi-transparente */
             text-align: center;
             max-width: 800px;
             margin-left: auto;
@@ -96,12 +213,12 @@
             font-size: 1.5em;
             margin-top: 10px;
             margin-bottom: 10px;
-            color: #0d47a1; /* Azul más vibrante */
+            color: #6a1b9a; /* Morado más vibrante */
         }
 
         .perfume-card p.description {
             font-size: 0.95em;
-            color: #555;
+            color: #666;
             margin-bottom: 15px;
             min-height: 60px; /* Altura mínima para descripciones consistentes */
             overflow: hidden; /* Oculta el texto si es muy largo */
@@ -114,12 +231,12 @@
         .perfume-card .price {
             font-size: 1.4em;
             font-weight: bold;
-            color: #2e7d32; /* Verde oscuro para precios */
+            color: #d81b60; /* Rosa intenso para precios */
             margin-bottom: 20px;
         }
 
         .buy-button {
-            background-color: #1976d2; /* Azul medio */
+            background-color: #ec407a; /* Rosa fuerte */
             color: white;
             border: none;
             padding: 12px 25px;
@@ -133,7 +250,7 @@
         }
 
         .buy-button:hover {
-            background-color: #0d47a1; /* Azul más oscuro al pasar el ratón */
+            background-color: #0509f7fd; /* Rosa más oscuro al pasar el ratón */
             transform: translateY(-3px);
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
         }
@@ -182,7 +299,7 @@
 
         .menu-flotante ul li a {
             background: rgba(255, 255, 255, 0.1);
-            color: #0b0122;
+            color: #0c0075;
             text-decoration: none;
             padding: 10px 18px;
             border-radius: 8px;
@@ -211,7 +328,7 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* --- Adaptabilidad (Responsive Design) del Menú y Contenido --- */
+        /* --- Adaptabilidad (Responsive Design) del Menú --- */
         @media (max-width: 768px) {
             .menu-flotante {
                 top: 15px;
@@ -287,80 +404,286 @@
         <br>
         <h2 >perfumeria mis fragancias jhon dainer arias</h2>
         <h1>Carácter y Presencia: Fragancias para el Caballero Moderno</h1>
-        <p>Descubre nuestra selecta colección de perfumes masculinos, diseñados para realzar la fuerza, la elegancia y la distinción de cada hombre. Encuentra tu esencia ideal.</p>
-    </header>
+        <h3>Descubre nuestra selecta colección de perfumes masculinos, diseñados para realzar la fuerza, la elegancia y la distinción de cada hombre. Encuentra tu esencia ideal.</h3>
 <section class="article-content">
-    <p>Explora un mundo de notas cítricas, amaderadas, especiadas y acuáticas, diseñadas para complementar tu estilo y dejar una impresión poderosa. Te invitamos a conocer las prestigiosas casas perfumeras y sus creaciones que forman parte de nuestro exclusivo catálogo para caballero:</p>
+    <h3>Explora un mundo de notas cítricas, amaderadas, especiadas y acuáticas, diseñadas para complementar tu estilo y dejar una impresión poderosa. Te invitamos a conocer las prestigiosas casas perfumeras y sus creaciones que forman parte de nuestro exclusivo catálogo para caballero:</h3>
 
-    <ul class="perfume-list">
-        <li><strong>Afnan:</strong> 9PM, 9AM</li>
-        <li><strong>Al Haramain:</strong> Dubai Night</li>
-        <li><strong>Animale:</strong> Animale Men</li>
-        <li><strong>Antonio Banderas:</strong> Blue Seduction, King of Seduction, The Golden Secret</li>
-        <li><strong>Armaf:</strong> Club de Nuit, Mandarin Sky</li>
-        <li><strong>Azzaro:</strong> Azzaro</li>
-        <li><strong>Bharara:</strong> Bharara King, Bharara Onix</li>
-        <li><strong>Bvlgari:</strong> Acqua, Man in Black, Bvlgary Man</li>
-        <li><strong>Calvin Klein:</strong> Eternity, Escape, Ckin2U Men</li>
-        <li><strong>Carolina Herrera:</strong> 212 Men NYC, 212 VIP, 212 VIP Black Own, 212 VIP Black Red, Bad Boy, Central Park Men, Prive Men, 212 Heroes Forever Young, CH Men, 212 Sexy Men, 212 Men Acqua</li>
-        <li><strong>Cartier:</strong> Santos</li>
-        <li><strong>Chanel:</strong> Bleu, Allure Sport</li>
-        <li><strong>Christian Dior:</strong> Faharenheit, Sauvage, Sauvage Elixir</li>
-        <li><strong>Clinique:</strong> Clinique Happy</li>
-        <li><strong>Creed:</strong> Aventus, Silver Mountain Water</li>
-        <li><strong>Cristiano Ronaldo:</strong> CR7 Legacy, CR7</li>
-        <li><strong>Diesel:</strong> Bad, Only The Brave, Spirit of The Brave, Plus Men, Diesel Fuel For Life</li>
-        <li><strong>Dolce & Gabbana:</strong> Light Blue, K</li>
-        <li><strong>Dumont Paris:</strong> Nitro Red</li>
-        <li><strong>Enrique Iglesias:</strong> Adrenaline</li>
-        <li><strong>Esika:</strong> Dorsay, Winner Sport</li>
-        <li><strong>Faconable:</strong> Faconable</li>
-        <li><strong>Ferrari:</strong> Escuderia</li>
-        <li><strong>Gilles Cantuel:</strong> Arsenal</li>
-        <li><strong>Giorgio Armani:</strong> Acqua Di Gio, Code, Acqua Di Gio Profumo, Stronger With You</li>
-        <li><strong>Givenchy:</strong> Blue Label Givenchy, Pi</li>
-        <li><strong>Gucci:</strong> Gucci</li>
-        <li><strong>Hugo Boss:</strong> Boss Bottled, Boss Bottled Night, Boss Dark Blue, Boss Energise, Boss Iced, Boss In Motion, Boss Orange, Boss Unlimited, Hugo Boss Red, Hugo XY, Hugo, Boss Bottled Tonic, Just Different, Boss Element, Boss Bottled Elixir</li>
-        <li><strong>Issey Miyake:</strong> Issey Pour Homme, Issey Miyake Sport, Issey Miyake Version 1992</li>
-        <li><strong>Jean Paul Gaultier:</strong> Scandal, Le Male, Ultramale, Le Beau, Le Male Elixir, Le Male Le Parfum, Le Beau Paradise Garden</li>
-        <li><strong>Jean Pascal:</strong> Jean Pascal</li>
-        <li><strong>Jesús del Pozo:</strong> Halloween Men</li>
-        <li><strong>Lacoste:</strong> Lacoste Blanca, Lacoste Essential, Lacoste Noir Negra, Lacoste Red, Lacoste Rouge, Lacoste Bleu, Lacoste Amarilla</li>
-        <li><strong>Lattafa:</strong> Asad, Fakhar Black, Asad Zanzibar, Asad Bourbon, His Confession, Khamrah Dukhan</li>
-        <li><strong>Liz Claiborne:</strong> Curve</li>
-        <li><strong>Loewe:</strong> 7 Loewe, Loewe Solo</li>
-        <li><strong>Louis Vuitton:</strong> L’Immensité, Imagination</li>
-        <li><strong>Maluma:</strong> Onix Royalty, Garnet Royalty</li>
-        <li><strong>Mercedes Benz:</strong> Mercedes Benz</li>
-        <li><strong>Montblanc:</strong> Legend, Starwalker, Emblem, Explorer, Explorer Platinum</li>
-        <li><strong>Moschino:</strong> Toy Boy</li>
-        <li><strong>Natura:</strong> Kaiak</li>
-        <li><strong>Nautica:</strong> Náutica Voyage, Nautica Voyage Version 2006</li>
-        <li><strong>Orientica:</strong> Imperial Gold</li>
-        <li><strong>Oscar de La Renta:</strong> Pour Lui</li>
-        <li><strong>Paco Rabanne:</strong> Black XS, One Million Royal, Invictus, Invictus Aqua, Invictus Intense, Invictus Legend, One Million, One Million Lucky, Phantom, Pure XS, Invictus Victory, Black XS Aphrodisiaque, Black XS L'Exces, One Million Golden Oud, One Million Prive, Invictus Parfum, One Million Elixir, One Million Gold Intense, Invictus Platinum</li>
-        <li><strong>Parfums de Marly:</strong> Pegasus, Althair</li>
-        <li><strong>Paris Hilton:</strong> Gold Rush</li>
-        <li><strong>Perry Ellis:</strong> 360 Men, 360 Red</li>
-        <li><strong>Pino Silvestre:</strong> Pino Silvestre</li>
-        <li><strong>Prada:</strong> Luna Rossa Ocean, Luna Rossa Carbon</li>
-        <li><strong>Ralph Lauren:</strong> Polo Blue, Polo Red, Polo Ultra Blue</li>
-        <li><strong>Rasasi:</strong> Hawas For Him</li>
-        <li><strong>Reyane:</strong> Insurrection</li>
-        <li><strong>Ted Lapidus:</strong> Lapidus</li>
-        <li><strong>Thierry Mugler:</strong> Angel</li>
-        <li><strong>Tom Ford:</strong> Ombre Leather 16</li>
-        <li><strong>Tommy Hilfiger:</strong> Tommy Boy</li>
-        <li><strong>Valentino:</strong> Valentino Uomo, Born In Roma</li>
-        <li><strong>Versace:</strong> Eros, Eros Flame, Eau Fraiche, Dylan Blue, Blue Jeans, Versace Pour Homme, Eros Energy</li>
-        <li><strong>Victorinox:</strong> Swiss Army</li>
-        <li><strong>Viktor & Rolf:</strong> Spicebomb</li>
-        <li><strong>Yanbal:</strong> Osadia, Solo, Ohm, Temptation, Arom, Adrenaline HM, 43N Paralel</li>
-        <li><strong>Yves Saint Laurent:</strong> Yves, M7</li>
-        <li><strong>Zlatan:</strong> Zlatan Ibrahimovic</li>
-    </ul>
+    <ul class="perfume-list"><h3>referencias para caballero  <h3>
+       <table class="perfume-table">
+    <thead>
+        <tr>
+            <th>Casa Perfumera o marca  </th>
+            <th>Perfumes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-label="Casa Perfumera">Afnan</td>
+            <td data-label="Perfumes">9PM, 9AM</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Al Haramain</td>
+            <td data-label="Perfumes">Dubai Night</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Animale</td>
+            <td data-label="Perfumes">Animale Men</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Antonio Banderas</td>
+            <td data-label="Perfumes">Blue Seduction, King of Seduction, The Golden Secret</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Armaf</td>
+            <td data-label="Perfumes">Club de Nuit, Mandarin Sky</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Azzaro</td>
+            <td data-label="Perfumes">Azzaro</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Bharara</td>
+            <td data-label="Perfumes">Bharara King, Bharara Onix</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Bvlgari</td>
+            <td data-label="Perfumes">Acqua, Man in Black, Bvlgary Man</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Calvin Klein</td>
+            <td data-label="Perfumes">Eternity, Escape, Ckin2U Men</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Carolina Herrera</td>
+            <td data-label="Perfumes">212 Men NYC, 212 VIP, 212 VIP Black Own, 212 VIP Black Red, Bad Boy, Central Park Men, Prive Men, 212 Heroes Forever Young, CH Men, 212 Sexy Men, 212 Men Acqua</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Cartier</td>
+            <td data-label="Perfumes">Santos</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Chanel</td>
+            <td data-label="Perfumes">Bleu, Allure Sport</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Christian Dior</td>
+            <td data-label="Perfumes">Faharenheit, Sauvage, Sauvage Elixir</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Clinique</td>
+            <td data-label="Perfumes">Clinique Happy</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Creed</td>
+            <td data-label="Perfumes">Aventus, Silver Mountain Water</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Cristiano Ronaldo</td>
+            <td data-label="Perfumes">CR7 Legacy, CR7</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Diesel</td>
+            <td data-label="Perfumes">Bad, Only The Brave, Spirit of The Brave, Plus Men, Diesel Fuel For Life</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Dolce & Gabbana</td>
+            <td data-label="Perfumes">Light Blue, K</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Dumont Paris</td>
+            <td data-label="Perfumes">Nitro Red</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Enrique Iglesias</td>
+            <td data-label="Perfumes">Adrenaline</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Esika</td>
+            <td data-label="Perfumes">Dorsay, Winner Sport</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Faconable</td>
+            <td data-label="Perfumes">Faconable</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Ferrari</td>
+            <td data-label="Perfumes">Escuderia</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Gilles Cantuel</td>
+            <td data-label="Perfumes">Arsenal</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Giorgio Armani</td>
+            <td data-label="Perfumes">Acqua Di Gio, Code, Acqua Di Gio Profumo, Stronger With You</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Givenchy</td>
+            <td data-label="Perfumes">Blue Label Givenchy, Pi</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Gucci</td>
+            <td data-label="Perfumes">Gucci</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Hugo Boss</td>
+            <td data-label="Perfumes">Boss Bottled, Boss Bottled Night, Boss Dark Blue, Boss Energise, Boss Iced, Boss In Motion, Boss Orange, Boss Unlimited, Hugo Boss Red, Hugo XY, Hugo, Boss Bottled Tonic, Just Different, Boss Element, Boss Bottled Elixir</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Issey Miyake</td>
+            <td data-label="Perfumes">Issey Pour Homme, Issey Miyake Sport, Issey Miyake Version 1992</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Jean Paul Gaultier</td>
+            <td data-label="Perfumes">Scandal, Le Male, Ultramale, Le Beau, Le Male Elixir, Le Male Le Parfum, Le Beau Paradise Garden</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Jean Pascal</td>
+            <td data-label="Perfumes">Jean Pascal</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Jesús del Pozo</td>
+            <td data-label="Perfumes">Halloween Men</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Lacoste</td>
+            <td data-label="Perfumes">Lacoste Blanca, Lacoste Essential, Lacoste Noir Negra, Lacoste Red, Lacoste Rouge, Lacoste Bleu, Lacoste Amarilla</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Lattafa</td>
+            <td data-label="Perfumes">Asad, Fakhar Black, Asad Zanzibar, Asad Bourbon, His Confession, Khamrah Dukhan</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Liz Claiborne</td>
+            <td data-label="Perfumes">Curve</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Loewe</td>
+            <td data-label="Perfumes">7 Loewe, Loewe Solo</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Louis Vuitton</td>
+            <td data-label="Perfumes">L’Immensité, Imagination</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Maluma</td>
+            <td data-label="Perfumes">Onix Royalty, Garnet Royalty</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Mercedes Benz</td>
+            <td data-label="Perfumes">Mercedes Benz</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Montblanc</td>
+            <td data-label="Perfumes">Legend, Starwalker, Emblem, Explorer, Explorer Platinum</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Moschino</td>
+            <td data-label="Perfumes">Toy Boy</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Natura</td>
+            <td data-label="Perfumes">Kaiak</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Nautica</td>
+            <td data-label="Perfumes">Náutica Voyage, Nautica Voyage Version 2006</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Orientica</td>
+            <td data-label="Perfumes">Imperial Gold</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Oscar de La Renta</td>
+            <td data-label="Perfumes">Pour Lui</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Paco Rabanne</td>
+            <td data-label="Perfumes">Black XS, One Million Royal, Invictus, Invictus Aqua, Invictus Intense, Invictus Legend, One Million, One Million Lucky, Phantom, Pure XS, Invictus Victory, Black XS Aphrodisiaque, Black XS L'Exces, One Million Golden Oud, One Million Prive, Invictus Parfum, One Million Elixir, One Million Gold Intense, Invictus Platinum</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Parfums de Marly</td>
+            <td data-label="Perfumes">Pegasus, Althair</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Paris Hilton</td>
+            <td data-label="Perfumes">Gold Rush</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Perry Ellis</td>
+            <td data-label="Perfumes">360 Men, 360 Red</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Pino Silvestre</td>
+            <td data-label="Casa Perfumera">Pino Silvestre</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Prada</td>
+            <td data-label="Perfumes">Luna Rossa Ocean, Luna Rossa Carbon</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Ralph Lauren</td>
+            <td data-label="Perfumes">Polo Blue, Polo Red, Polo Ultra Blue</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Rasasi</td>
+            <td data-label="Perfumes">Hawas For Him</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Reyane</td>
+            <td data-label="Perfumes">Insurrection</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Ted Lapidus</td>
+            <td data-label="Perfumes">Lapidus</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Thierry Mugler</td>
+            <td data-label="Perfumes">Angel</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Tom Ford</td>
+            <td data-label="Perfumes">Ombre Leather 16</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Tommy Hilfiger</td>
+            <td data-label="Perfumes">Tommy Boy</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Valentino</td>
+            <td data-label="Perfumes">Valentino Uomo, Born In Roma</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Versace</td>
+            <td data-label="Perfumes">Eros, Eros Flame, Eau Fraiche, Dylan Blue, Blue Jeans, Versace Pour Homme, Eros Energy</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Victorinox</td>
+            <td data-label="Perfumes">Swiss Army</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Viktor & Rolf</td>
+            <td data-label="Perfumes">Spicebomb</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Yanbal</td>
+            <td data-label="Perfumes">Osadia, Solo, Ohm, Temptation, Arom, Adrenaline HM, 43N Paralel</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Yves Saint Laurent</td>
+            <td data-label="Perfumes">Yves, M7</td>
+        </tr>
+        <tr>
+            <td data-label="Casa Perfumera">Zlatan</td>
+            <td data-label="Perfumes">Zlatan Ibrahimovic</td>
+        </tr>
+    </tbody>
+</table>
 </section>
+        <h2 >perfumeria mis fragancias jhon dainer arias</h2>
 
-   
+       </header>
+
     </body>
 </html>
+    
