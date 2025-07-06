@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,26 +8,93 @@
     <link rel="stylesheet" href="styles.css" type="text/css"> 
     
     <style>
-        /* --- ESTILOS GLOBALES Y DE BASE PARA LA PÁGINA INICIO --- */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente elegante y legible */
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to top, #f8f8f8, #e8e8e8, #d8d8d8); /* Degradado suave de grises claros */
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh; /* Asegura que el degradado cubra toda la altura */
-            scroll-behavior: smooth;
+       body {
+            /* CORRECCIÓN: Usar barra inclinada hacia adelante (/) en la ruta */
+            /* Si 'fondomujer.jpg' está directamente en la misma carpeta que este HTML, la ruta es solo 'fondomujer.jpg' */
+            /* Si está en una subcarpeta llamada 'imagen', la ruta sería 'imagen/fondomujer.jpg' */
+            background-image: url('imagen/a1.jpg'); 
+            
+            /* Cubre todo el área disponible sin dejar espacios vacíos */
+            background-size: cover; 
+            
+            /* Centra la imagen en el fondo */
+            background-position: center center; 
+            
+            /* Hace que la imagen se quede fija al hacer scroll */
+            background-attachment: fixed; 
+            
+            /* Opcional: Asegura que el fondo no se repita */
+            background-repeat: no-repeat; 
+
+            /* Opcional: Estilos para que el contenido sea visible y se pueda desplazar */
+            color: #fff; /* Color de texto blanco para contraste */
+            min-height: 150vh; /* Para asegurar que haya suficiente contenido y puedas hacer scroll */
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+   
+
+       /* Estilos del Header principal */
+.hero-section-blur {
+    position: relative;
+    min-height: 500px; /* Ejemplo de altura */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.hero-section-blur::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('tu-imagen-de-fondo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: blur(8px); /* Aplica un desenfoque de 8 píxeles */
+    -webkit-filter: blur(8px); /* Para compatibilidad con WebKit (Safari) */
+    z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+
+    /* Puedes combinarlo con una capa oscura si quieres que esté difuminada Y oscura */
+    background-color: rgba(0, 0, 0, 0.4); /* Capa oscura */
+    background-blend-mode: multiply; /* Mezcla la capa oscura con la imagen difuminada */
+}
+
+.hero-section-blur .content {
+    position: relative;
+    z-index: 2;
+    /* Otros estilos para tu contenido */
+}
+
+        h1{
+            font-family: 'Playfair Display', serif; /* Fuente con serifa para títulos elegantes */
+            color: #03eea0; /* Marrón oscuro cálido */
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        h1, h2, h3 {
+         h2, h3 {
             font-family: 'Playfair Display', serif; /* Fuente con serifa para títulos elegantes */
-            color: #5d4037; /* Marrón oscuro cálido */
+            color: #faea08; /* Marrón oscuro cálido */
             text-align: center;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-
+        h4, h5,h6{
+            font-family: 'Playfair Display', serif; /* Fuente con serifa para títulos elegantes */
+            color: #f5a804; /* Marrón oscuro cálido */
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
         h1 {
             font-size: 4em; /* Título principal más grande */
             padding-top: 100px; /* Espacio para que no se solape con el menú flotante */
@@ -285,7 +353,7 @@
 
         .menu-flotante ul li a {
             background: rgba(255, 255, 255, 0.1);
-            color: #8401ff;
+            color: #e6ff01;
             text-decoration: none;
             padding: 10px 18px;
             border-radius: 8px;
@@ -431,21 +499,23 @@
             <li><a href="comprar.html">Hacer una Compra</a></li>
         </ul>
     </nav>
+</head>
+
+<section1>
 
     <header class="hero-section">
         <h1>Mis Fragancias Jhon Dainer Arias</h1>
-        <p>Descubre un universo de aromas que definen momentos, personalidades y recuerdos. Cada fragancia, una historia, con el sello distintivo de Jhon Dainer Arias.</p>
+        <h3>Descubre un universo de aromas que definen momentos, personalidades y recuerdos. Cada fragancia, una historia, con el sello distintivo de Jhon Dainer Arias.</h3>
         <a href="comprar.html" class="buy-button" style="background-color: #a1887f;">hacer una compra</a>
-    </header>
 
     <main class="main-content">
         <section id="about-us">
-            <h2>Nuestra Esencia: ¿Quién es Jhon Dainer Arias?</h2>
-            <p>Jhon Dainer Arias es sinónimo de pasión por la perfumería y el arte de crear aromas inolvidables. Con años de dedicación, nos hemos comprometido a ofrecer fragancias de la más alta calidad que no solo huelen increíble, sino que también cuentan una historia y evocan emociones profundas. Cada botella es el resultado de una cuidadosa selección de ingredientes y un proceso artesanal que garantiza una experiencia olfativa única.</p>
-            <p>Desde la frescura vibrante hasta la calidez envolvente, nuestras colecciones para dama, caballero y unisex están pensadas para complementar cada faceta de tu vida. En "Mis Fragancias Jhon Dainer Arias", creemos que un perfume es una extensión de tu ser.</p>
+            <h3>Nuestra Esencia: ¿Quién es Jhon Dainer Arias?</h3>
+            <h3>Jhon Dainer Arias es sinónimo de pasión por la perfumería y el arte de crear aromas inolvidables. Con años de dedicación, nos hemos comprometido a ofrecer fragancias de la más alta calidad que no solo huelen increíble, sino que también cuentan una historia y evocan emociones profundas. Cada botella es el resultado de una cuidadosa selección de ingredientes y un proceso artesanal que garantiza una experiencia olfativa única.</h3>
+            <h3>Desde la frescura vibrante hasta la calidez envolvente, nuestras colecciones para dama, caballero y unisex están pensadas para complementar cada faceta de tu vida. En "Mis Fragancias Jhon Dainer Arias", creemos que un perfume es una extensión de tu ser.</h3>
         </section>
         <lo>
-<p> ---
+<h3> ---
 Las Casas Perfumeras que Definen Nuestra Colección
 Descubre el Prestigio y la Innovación en Mis Fragancias Jhon Dainer Arias
 
@@ -455,170 +525,133 @@ Nuestra misión es que encuentres ese aroma especial que complementa tu esencia,
 
 <br>Nuestro Exclusivo Listado de Casas Perfumeras:<br>
 <br>
+<section class="perfumes-tables-section">
 
-Afnan <br>
-Agata Ruiz de la Prada<br>
-Ahli<br>
-Al Haramain<br>
-Animale<br>
-Antonio Banderas<br>
-Ariana Grande<br>
-Armaf<br>
-Arrurru<br>
-Azzaro<br>
-Bath & Body Works<br>
-Benetton<br>
-Bharara<br>
-Billie Eilish<br>
-Bond N°9<br>
-Britney Spears<br>
-Burberry<br>
-Bvlgari<br>
-Cacharel<br>
-Calvin Klein<br>
-Carolina Herrera<br>
-Cartier<br>
-Chanel<br>
-Christian Dior<br>
-Clinique<br>
-Creed<br>
-Cristiano Ronaldo<br>
-Diesel<br>
-Dolce & Gabbana<br>
-Dumont Paris<br>
-Elizabeth Arden<br>
-Elizabeth Taylor<br>
-Enrique Iglesias<br>
-Escada<br>
-Esika<br>
-Faconable<br>
-Ferrari<br>
-Fred Hayman<br>
-Giardini Di Toscana<br>
-Gilles Cantuel<br>
-Giorgio Armani<br>
-Givenchy<br>
-Gucci<br>
-Guess<br>
-Hugo Boss<br>
-Ilmin<br>
-Issey Miyake<br>
-Jean Paul Gaultier<br>
-Jean Pascal<br>
-Jesús del Pozo<br>
-Juicy Couture<br>
-Justin Bieber<br>
-Katy Perry<br>
-Kenzo<br>
-Killian<br>
-Kim Kardashian<br>
-Lacoste<br>
-Lancome<br>
-Lattafa<br>
-Le Labo<br>
-Liz Claiborne<br>
-Loewe<br>
-Lolita Lempicka<br>
-Lorenzo Pazzaglia<br>
-Louis Vuitton<br>
-Maison Francis Kurkdjian<br>
-Maluma<br>
-Mancera<br>
-Mercedes Benz<br>
-Montblanc<br>
-Montale<br>
-Moschino<br>
-Natura<br>
-Nautica<br>
-One Direction<br>
-Orientica<br>
-Oscar de la Renta<br>
-Paco Rabanne<br>
-de Marly<br>
-Paris Hilton<br>
-Perry Ellis<br>
-Pino Silvestre<br>
-Prada<br>
-Ralph Lauren<br>
-Rasasi<br>
-Reyane<br>
-Selena Gomez<br>
-Shakira<br>
-Sofia Vergara<br>
-Ted Lapidus<br>
-Thierry Mugler<br>
-Tom Ford<br>
-Tommy Hilfiger<br>
-Tous<br>
-Valentino<br>
-Versace<br>
-Victoria Secret<br>
-Victorinox<br>
-Viktor & Rolf<br>
-Yanbal<br>
-Yves Saint Laurent<br>
-Zlatan         <br>
-<br>
+    <div class="table-container">
+        <h4 class="table-title">Casas Perfumeras Disponibles</h4>
+        <table class="data-table brands-table">
+            <thead>
+                <tr>
+                    <th>Casa Perfumera</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-label="afnan"><td>Afnan</td></tr>
+                <tr data-label="agataruizdelaprada"><td>Agata Ruiz de la Prada</td></tr>
+                <tr data-label="ahli"><td>Ahli</td></tr>
+                <tr data-label="alharamain"><td>Al Haramain</td></tr>
+                <tr data-label="animale"><td>Animale</td></tr>
+                <tr data-label="antoniobanderas"><td>Antonio Banderas</td></tr>
+                <tr data-label="arianagrande"><td>Ariana Grande</td></tr>
+                <tr data-label="armaf"><td>Armaf</td></tr>
+                <tr data-label="arrurru"><td>Arrurru</td></tr>
+                <tr data-label="azzaro"><td>Azzaro</td></tr>
+                <tr data-label="bath&bodyworks"><td>Bath & Body Works</td></tr>
+                <tr data-label="benetton"><td>Benetton</td></tr>
+                <tr data-label="bharara"><td>Bharara</td></tr>
+                <tr data-label="billieeilish"><td>Billie Eilish</td></tr>
+                <tr data-label="bondn°9"><td>Bond N°9</td></tr>
+                <tr data-label="britneyspears"><td>Britney Spears</td></tr>
+                <tr data-label="burberry"><td>Burberry</td></tr>
+                <tr data-label="bvlgari"><td>Bvlgari</td></tr>
+                <tr data-label="cacharel"><td>Cacharel</td></tr>
+                <tr data-label="calvinklein"><td>Calvin Klein</td></tr>
+                <tr data-label="carolinaherrera"><td>Carolina Herrera</td></tr>
+                <tr data-label="cartier"><td>Cartier</td></tr>
+                <tr data-label="chanel"><td>Chanel</td></tr>
+                <tr data-label="christiandior"><td>Christian Dior</td></tr>
+                <tr data-label="clinique"><td>Clinique</td></tr>
+                <tr data-label="creed"><td>Creed</td></tr>
+                <tr data-label="cristianoronaldo"><td>Cristiano Ronaldo</td></tr>
+                <tr data-label="diesel"><td>Diesel</td></tr>
+                <tr data-label="dolcegabbana"><td>Dolce & Gabbana</td></tr>
+                <tr data-label="dumontparis"><td>Dumont Paris</td></tr>
+                <tr data-label="elizabetharden"><td>Elizabeth Arden</td></tr>
+                <tr data-label="elizabethtaylor"><td>Elizabeth Taylor</td></tr>
+                <tr data-label="enriqueiglesias"><td>Enrique Iglesias</td></tr>
+                <tr data-label="escada"><td>Escada</td></tr>
+                <tr data-label="esika"><td>Esika</td></tr>
+                <tr data-label="faconable"><td>Faconable</td></tr>
+                <tr data-label="ferrari"><td>Ferrari</td></tr>
+                <tr data-label="fredhayman"><td>Fred Hayman</td></tr>
+                <tr data-label="giardiniditoscana"><td>Giardini Di Toscana</td></tr>
+                <tr data-label="gillescantuel"><td>Gilles Cantuel</td></tr>
+                <tr data-label="giorgioarmani"><td>Giorgio Armani</td></tr>
+                <tr data-label="givenchy"><td>Givenchy</td></tr>
+                <tr data-label="gucci"><td>Gucci</td></tr>
+                <tr data-label="guess"><td>Guess</td></tr>
+                <tr data-label="hugoboss"><td>Hugo Boss</td></tr>
+                <tr data-label="ilmin"><td>Ilmin</td></tr>
+                <tr data-label="isseymiyake"><td>Issey Miyake</td></tr>
+                <tr data-label="jeanpaulgaultier"><td>Jean Paul Gaultier</td></tr>
+                <tr data-label="jeanpascal"><td>Jean Pascal</td></tr>
+                <tr data-label="jesusdelpozo"><td>Jesús del Pozo</td></tr>
+                <tr data-label="juicycouture"><td>Juicy Couture</td></tr>
+                <tr data-label="justinbieber"><td>Justin Bieber</td></tr>
+                <tr data-label="katyperry"><td>Katy Perry</td></tr>
+                <tr data-label="kenzo"><td>Kenzo</td></tr>
+                <tr data-label="killian"><td>Killian</td></tr>
+                <tr data-label="kimkardashian"><td>Kim Kardashian</td></tr>
+                <tr data-label="lacoste"><td>Lacoste</td></tr>
+                <tr data-label="lancome"><td>Lancome</td></tr>
+                <tr data-label="lattafa"><td>Lattafa</td></tr>
+                <tr data-label="lelabo"><td>Le Labo</td></tr>
+                <tr data-label="lizclaiborne"><td>Liz Claiborne</td></tr>
+                <tr data-label="loewe"><td>Loewe</td></tr>
+                <tr data-label="lolitalempicka"><td>Lolita Lempicka</td></tr>
+                <tr data-label="lorenzopazzaglia"><td>Lorenzo Pazzaglia</td></tr>
+                <tr data-label="louisvuitton"><td>Louis Vuitton</td></tr>
+                <tr data-label="maisonfrancisk"><td>Maison Francis Kurkdjian</td></tr>
+                <tr data-label="maluma"><td>Maluma</td></tr>
+                <tr data-label="mancera"><td>Mancera</td></tr>
+                <tr data-label="mercedesbenz"><td>Mercedes Benz</td></tr>
+                <tr data-label="montblanc"><td>Montblanc</td></tr>
+                <tr data-label="montale"><td>Montale</td></tr>
+                <tr data-label="moschino"><td>Moschino</td></tr>
+                <tr data-label="natura"><td>Natura</td></tr>
+                <tr data-label="nautica"><td>Nautica</td></tr>
+                <tr data-label="onedirection"><td>One Direction</td></tr>
+                <tr data-label="orientica"><td>Orientica</td></tr>
+                <tr data-label="oscardelarenta"><td>Oscar de la Renta</td></tr>
+                <tr data-label="pacorabanne"><td>Paco Rabanne</td></tr>
+                <tr data-label="parfumsdemarly"><td>Parfums de Marly</td></tr>
+                <tr data-label="parishilton"><td>Paris Hilton</td></tr>
+                <tr data-label="perryellis"><td>Perry Ellis</td></tr>
+                <tr data-label="pinosilvestre"><td>Pino Silvestre</td></tr>
+                <tr data-label="prada"><td>Prada</td></tr>
+                <tr data-label="ralphlauren"><td>Ralph Lauren</td></tr>
+                <tr data-label="rasasi"><td>Rasasi</td></tr>
+                <tr data-label="reyane"><td>Reyane</td></tr>
+                <tr data-label="selenagomez"><td>Selena Gomez</td></tr>
+                <tr data-label="shakira"><td>Shakira</td></tr>
+                <tr data-label="sofiavergara"><td>Sofia Vergara</td></tr>
+                <tr data-label="tedlapidus"><td>Ted Lapidus</td></tr>
+                <tr data-label="thierrimugler"><td>Thierry Mugler</td></tr>
+                <tr data-label="tomford"><td>Tom Ford</td></tr>
+                <tr data-label="tommyhilfiger"><td>Tommy Hilfiger</td></tr>
+                <tr data-label="tous"><td>Tous</td></tr>
+                <tr data-label="valentino"><td>Valentino</td></tr>
+                <tr data-label="versace"><td>Versace</td></tr>
+                <tr data-label="victoriasecret"><td>Victoria Secret</td></tr>
+                <tr data-label="victorinox"><td>Victorinox</td></tr>
+                <tr data-label="viktor&rolf"><td>Viktor & Rolf</td></tr>
+                <tr data-label="yanbal"><td>Yanbal</td></tr>
+                <tr data-label="yvessaintlaurent"><td>Yves Saint Laurent</td></tr>
+                <tr data-label="zlatan"><td>Zlatan</td></tr>
+            </tbody>
+        </table>
+    </div>
 
+    <div class="table-container">
+        <h4 class="table-title">Nuestros Perfumes</h4>
+        <table class="data-table perfumes-table">
+            <thead>
+                <tr>
+ 
+<h3 una de estas casas representa una tradición de excelencia y una visión única en el mundo de las fragancias. Te invitamos a explorar nuestro catálogo y a encontrar esa joya olfativa que te está esperando.</h3>
 
-Cada una de estas casas representa una tradición de excelencia y una visión única en el mundo de las fragancias. Te invitamos a explorar nuestro catálogo y a encontrar esa joya olfativa que te está esperando.
+En "Mis Fragancias Jhon Dainer Arias", estamos para asesorarte y acompañarte en el fascinante viaje de la perfumería. ¡Visítanos y déjate envolver por los aromas de prestigio!
 
-En **Mis Fragancias Jhon Dainer Arias**, estamos para asesorarte y acompañarte en el fascinante viaje de la perfumería. ¡Visítanos y déjate envolver por los aromas de prestigio!
-        <section id="featured-products" class="highlighted-products">
-            <h2>Fragancias Destacadas</h2>
-            <div class="product-preview-grid">
-                <div class="product-preview-card">
-                    <img src="imagen/perfume_dama_1.jpg" alt="Dama Encantadora">
-                    <h4>Dama Encantadora</h4>
-                    <p class="price"></p>
-                    <a href="dama.html" class="read-more-button" style="background-color: #d81b60;">Ver Dama</a>
-                </div>
-                <div class="product-preview-card">
-                    <img src="imagen/perfume_caballero_1.jpg" alt="Esencia del Aventurero">
-                    <h4>Esencia del Aventurero</h4>
-                    <p class="price">$ COP</p>
-                    <a href="caballero.html" class="read-more-button" style="background-color: #1976d2;">Ver Caballero</a>
-                </div>
-                <div class="product-preview-card">
-                    <img src="imagen/perfume_unisex_1.jpg" alt="Armonía Cítrica">
-                    <h4>Armonía Cítrica</h4>
-                    <p class="price">$ COP</p>
-                    <a href="unisex.html" class="read-more-button" style="background-color: #66bb6a;">Ver Unisex</a>
-                </div>
-                 <div class="product-preview-card">
-                    <img src="imagen/perfume_dama_3.jpg" alt="Jardín Secreto">
-                    <h4>Jardín Secreto</h4>
-                    <p class="price">$. COP</p>
-                    <a href="dama.html" class="read-more-button" style="background-color: #ec407a;">Ver Dama</a>
-                </div>
-            </div>
-            <a href="comprar.html" class="view-all-button">Ver Toda la Colección</a>
-        </section>
-
-        <section id="perfume-articles">
-            <h2>Artículos y Consejos de Perfumería</h2>
-            <p>Sumérgete en el mundo de las fragancias con nuestros consejos, guías y últimas tendencias.</p>
-            <div class="featured-articles">
-                <div class="article-card">
-                    <img src="imagen/articulo_aroma.jpg" alt="Descubre tu aroma ideal">
-                    <h3>Descubre tu Aroma Ideal: Guía Personalizada</h3>
-                    <p>Encuentra el perfume perfecto que resalte tu personalidad y estilo. Te ofrecemos una guía completa para elegir tu fragancia distintiva.</p>
-                    <a href="#" class="read-more-button">Leer Más</a>
-                </div>
-                <div class="article-card">
-                    <img src="imagen/articulo_aplicacion.jpg" alt="Cómo aplicar perfume correctamente">
-                    <h3>Secretos para una Aplicación Duradera</h3>
-                    <p>Aprende los mejores trucos y técnicas para que tu perfume dure todo el día y su aroma te acompañe en cada momento.</p>
-                    <a href="#" class="read-more-button">Leer Más</a>
-                </div>
-                <div class="article-card">
-                    <img src="imagen/articulo_historia_jhon_dainer.jpg" alt="Historia de Mis Fragancias Jhon Dainer Arias">
-                    <h3>La Historia Detrás de Mis Fragancias JDA</h3>
-                    <p>Conoce el viaje y la visión de Jhon Dainer Arias, y cómo su pasión transformó la perfumería en una verdadera obra de arte.</p>
-                    <a href="#" class="read-more-button">Leer Más</a>
-                </div>
-            </div>
-        </section>
 
         </main>
 
